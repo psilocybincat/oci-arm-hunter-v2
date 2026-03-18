@@ -278,7 +278,7 @@ def handle_errors(command, data, log):
 
     # Check for temporary errors that can be retried
     if "code" in data:
-        if (data["code"] in ("TooManyRequests", "Out of host capacity.", 'InternalError')) \
+        if (data["code"] in ("TooManyRequests", "Out of host capacity.", 'InternalError', 'LimitExceeded')) \
                 or (data["message"] in ("Out of host capacity.", "Bad Gateway")):
             log.info("Command: %s--\nOutput: %s", command, data)
             time.sleep(WAIT_TIME)
