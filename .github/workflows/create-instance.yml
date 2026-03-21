@@ -6,8 +6,8 @@ on:
   workflow_dispatch:
 
   concurrency:
-    group: create-oci-instance
-      cancel-in-progress: false
+  group: create-oci-instance
+  cancel-in-progress: false
 
 jobs:
   create-instance:
