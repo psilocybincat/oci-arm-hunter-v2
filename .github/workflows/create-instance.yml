@@ -40,7 +40,7 @@ jobs:
           cat > oci_config <<EOF
           [DEFAULT]
           user=$OCI_USER_ID
-          fingerprint=$OCI_KEY_FINGERPRINT
+  WAIT_SECS=300ngerprint=$OCI_KEY_FINGERPRINT
           tenancy=$OCI_TENANCY_ID
           region=$OCI_REGION
           key_file=$HOME/.oci/oci_api_private_key.pem
@@ -62,7 +62,7 @@ jobs:
           TELEGRAM_USER_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           DAY=$(date +%-d); DOW=$(date +%u); if [ "$DOW" -ge 6 ] || ( [ "$DAY" -ge 25 ] && [ "$DAY" -le 30 ] ); then WAIT_SECS=60; else WAIT_SECS=300
-        fi
+WAIT_SECS=300
         cat > oci.env <<EOF
           OCI_CONFIG=$(pwd)/oci_config
           OCT_FREE_AD=$OCT_FREE_AD
@@ -87,4 +87,4 @@ jobs:
             cat INSTANCE_CREATED
           else
             echo "No instance created this run (out of capacity, will retry)"
-          fi
+  WAIT_SECS=300
